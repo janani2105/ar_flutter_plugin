@@ -7,7 +7,7 @@ Many thanks to Oleksandr Leuschenko for the [arkit_flutter_plugin](https://githu
 
 ## Getting Started
 
-### Installing
+### Installing 
 
 Add the Flutter package to your project by running:
 
