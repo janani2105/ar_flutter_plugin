@@ -168,6 +168,7 @@ internal class AndroidARView(
                                 addNode(it).thenAccept{status: Boolean ->
                                     result.success(status)
                                 }.exceptionally { throwable ->
+                                    android.util.Log.d(TAG, "addNode: $throwable")
                                     result.error("e", throwable.message, throwable.stackTrace)
                                     null
                                 }
@@ -690,6 +691,7 @@ internal class AndroidARView(
                                 completableFutureSuccess.complete(false)
                             }
                             .exceptionally { throwable ->
+                                android.util.Log.d("TAG", "addNode: $throwable")
                                 // Pass error to session manager (this has to be done on the main thread if this activity)
                                 val mainHandler = Handler(viewContext.mainLooper)
                                 val runnable = Runnable {sessionManagerChannel.invokeMethod("onError", listOf("Unable to load renderable" +  dict_node["uri"] as String)) }
@@ -718,6 +720,7 @@ internal class AndroidARView(
                                 completableFutureSuccess.complete(false)
                             }
                             .exceptionally { throwable ->
+                                android.util.Log.d("TAG", "addNode: $throwable")
                                 // Pass error to session manager (this has to be done on the main thread if this activity)
                                 val mainHandler = Handler(viewContext.mainLooper)
                                 val runnable = Runnable {sessionManagerChannel.invokeMethod("onError", listOf("Unable to load renderable" +  dict_node["uri"] as String)) }
@@ -749,6 +752,7 @@ internal class AndroidARView(
                                 completableFutureSuccess.complete(false)
                             }
                             .exceptionally { throwable ->
+                                android.util.Log.d("TAG", "addNode: $throwable")
                                 // Pass error to session manager (this has to be done on the main thread if this activity)
                                 val mainHandler = Handler(viewContext.mainLooper)
                                 val runnable = Runnable {sessionManagerChannel.invokeMethod("onError", listOf("Unable to load renderable " +  dict_node["uri"] as String)) }
@@ -782,6 +786,7 @@ internal class AndroidARView(
                                 completableFutureSuccess.complete(false)
                             }
                             .exceptionally { throwable ->
+                                android.util.Log.d("TAG", "addNode: $throwable")
                                 // Pass error to session manager (this has to be done on the main thread if this activity)
                                 val mainHandler = Handler(viewContext.mainLooper)
                                 val runnable = Runnable {sessionManagerChannel.invokeMethod("onError", listOf("Unable to load renderable" +  dict_node["uri"] as String)) }
